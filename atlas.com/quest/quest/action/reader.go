@@ -43,8 +43,8 @@ func get(questId uint16, root xml.Noder, nodeName string) ([]Model, error) {
 type actionProducer func() (CheckFunc, RunFunc, error)
 
 func getActionProducer(questId uint16, actType Type, req xml.Noder) actionProducer {
-	switch actType {
-
+	return func() (CheckFunc, RunFunc, error) {
+		return nil, nil, nil
 	}
 }
 

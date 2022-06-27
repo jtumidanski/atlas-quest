@@ -15,12 +15,12 @@ func readQuests() ([]Model, error) {
 		return nil, err
 	}
 
-	ci, err := getCheckInfo(err)
+	ci, err := getCheckInfo()
 	if err != nil {
 		return nil, err
 	}
 
-	ai, err := getActInfo(err)
+	ai, err := getActInfo()
 	if err != nil {
 		return nil, err
 	}
@@ -40,7 +40,7 @@ func readQuests() ([]Model, error) {
 	return results, nil
 }
 
-func getCheckInfo(err error) (xml.Parent, error) {
+func getCheckInfo() (xml.Parent, error) {
 	fe, err := wz.GetFileCache().GetFile("Check.img.xml")
 	if err != nil {
 		return nil, err
@@ -52,7 +52,7 @@ func getCheckInfo(err error) (xml.Parent, error) {
 	return ci, nil
 }
 
-func getActInfo(err error) (xml.Parent, error) {
+func getActInfo() (xml.Parent, error) {
 	fe, err := wz.GetFileCache().GetFile("Act.img.xml")
 	if err != nil {
 		return nil, err
